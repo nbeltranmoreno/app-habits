@@ -1,11 +1,11 @@
 export default function KidCharacter({ isEnemy, anim, isHit, isAttacking, equipment, size = 'normal' }) {
   const scale = size === 'small' ? 0.5 : 1;
-  const width = 90 * scale;
-  const height = 170 * scale;
+  const width = 100 * scale;
+  const height = 180 * scale;
 
   return (
     <div className={`transition-all duration-300 ${anim} ${isHit ? 'brightness-125 scale-98' : ''} ${isAttacking ? 'scale-105' : ''}`}>
-      <svg width={width} height={height} viewBox="0 0 90 170">
+      <svg width={width} height={height} viewBox="0 0 100 180">
         <defs>
           {/* Gradientes de piel realista */}
           <linearGradient id="skinLight" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -82,273 +82,302 @@ export default function KidCharacter({ isEnemy, anim, isHit, isAttacking, equipm
         </defs>
 
         {/* Sombra suave en el suelo */}
-        <ellipse cx="45" cy="167" rx="18" ry="4" fill="rgba(0,0,0,0.12)"/>
+        <ellipse cx="50" cy="175" rx="20" ry="4" fill="rgba(0,0,0,0.12)"/>
 
         {/* ========== PIERNAS Y ZAPATOS ========== */}
-        {/* Piernas con jeans */}
-        <path d="M32 118 L34 152 L44 152 L45 128 L45 128 L46 152 L56 152 L58 118"
+        {/* Piernas más largas y definidas para adulto */}
+        <path d="M35 120 L37 160 L46 160 L48 130 L48 130 L50 160 L59 160 L61 120"
               fill={isEnemy ? '#1a1a1a' : 'url(#jeansDark)'}/>
         {/* Costuras y pliegues del pantalón */}
-        <path d="M36 125 Q38 135 36 148" stroke={isEnemy ? '#252525' : '#3a4a5a'} strokeWidth="0.5" fill="none" opacity="0.5"/>
-        <path d="M54 125 Q52 135 54 148" stroke={isEnemy ? '#252525' : '#3a4a5a'} strokeWidth="0.5" fill="none" opacity="0.5"/>
-        <path d="M40 130 Q42 132 40 135" stroke={isEnemy ? '#252525' : '#3a4a5a'} strokeWidth="0.5" fill="none" opacity="0.3"/>
-        <path d="M50 130 Q48 132 50 135" stroke={isEnemy ? '#252525' : '#3a4a5a'} strokeWidth="0.5" fill="none" opacity="0.3"/>
+        <path d="M39 128 Q40 140 39 155" stroke={isEnemy ? '#252525' : '#3a4a5a'} strokeWidth="0.5" fill="none" opacity="0.5"/>
+        <path d="M57 128 Q56 140 57 155" stroke={isEnemy ? '#252525' : '#3a4a5a'} strokeWidth="0.5" fill="none" opacity="0.5"/>
+        <path d="M42 135 Q43 138 42 142" stroke={isEnemy ? '#252525' : '#3a4a5a'} strokeWidth="0.5" fill="none" opacity="0.3"/>
+        <path d="M54 135 Q53 138 54 142" stroke={isEnemy ? '#252525' : '#3a4a5a'} strokeWidth="0.5" fill="none" opacity="0.3"/>
 
-        {/* Zapatos realistas */}
-        <path d="M32 150 L30 158 Q32 163 45 163 L45 158 L44 150 Z"
+        {/* Zapatos más grandes para adulto */}
+        <path d="M35 158 L33 167 Q35 172 48 172 L48 167 L46 158 Z"
               fill={isEnemy ? '#1a1a1a' : (equipment?.boots?.equipped ? '#2d8a4e' : '#3a3a3a')}/>
-        <path d="M46 150 L45 158 Q48 163 60 163 L62 158 L56 150 Z"
+        <path d="M50 158 L48 167 Q51 172 64 172 L66 167 L59 158 Z"
               fill={isEnemy ? '#1a1a1a' : (equipment?.boots?.equipped ? '#2d8a4e' : '#3a3a3a')}/>
         {/* Detalles de zapatos */}
-        <path d="M32 154 L44 154" stroke={isEnemy ? '#252525' : (equipment?.boots?.equipped ? '#3a9a5e' : '#4a4a4a')} strokeWidth="1"/>
-        <path d="M46 154 L58 154" stroke={isEnemy ? '#252525' : (equipment?.boots?.equipped ? '#3a9a5e' : '#4a4a4a')} strokeWidth="1"/>
-        <ellipse cx="37" cy="158" rx="4" ry="2" fill={isEnemy ? '#252525' : (equipment?.boots?.equipped ? '#3a9a5e' : '#4a4a4a')} opacity="0.5"/>
-        <ellipse cx="53" cy="158" rx="4" ry="2" fill={isEnemy ? '#252525' : (equipment?.boots?.equipped ? '#3a9a5e' : '#4a4a4a')} opacity="0.5"/>
+        <path d="M35 162 L46 162" stroke={isEnemy ? '#252525' : (equipment?.boots?.equipped ? '#3a9a5e' : '#4a4a4a')} strokeWidth="1"/>
+        <path d="M50 162 L61 162" stroke={isEnemy ? '#252525' : (equipment?.boots?.equipped ? '#3a9a5e' : '#4a4a4a')} strokeWidth="1"/>
+        <ellipse cx="40" cy="167" rx="5" ry="2" fill={isEnemy ? '#252525' : (equipment?.boots?.equipped ? '#3a9a5e' : '#4a4a4a')} opacity="0.5"/>
+        <ellipse cx="56" cy="167" rx="5" ry="2" fill={isEnemy ? '#252525' : (equipment?.boots?.equipped ? '#3a9a5e' : '#4a4a4a')} opacity="0.5"/>
 
-        {/* ========== TORSO ========== */}
+        {/* ========== TORSO MÁS ANCHO (HOMBRE ADULTO) ========== */}
         {isEnemy ? (
           <>
-            {/* Hoodie negro */}
-            <path d="M25 62 Q18 68 16 80 L16 120 L74 120 L74 80 Q72 68 65 62 Z" fill="url(#blackHoodie)"/>
+            {/* Hoodie negro - hombros más anchos */}
+            <path d="M22 60 Q12 66 10 78 L10 120 L86 120 L86 78 Q84 66 74 60 Z" fill="url(#blackHoodie)"/>
             {/* Sombras del hoodie */}
-            <path d="M25 62 Q22 75 20 90 L20 118 L30 118 L32 70 Z" fill="#1f1f1f"/>
-            <path d="M65 62 Q68 75 70 90 L70 118 L60 118 L58 70 Z" fill="#1f1f1f"/>
+            <path d="M22 60 Q18 72 15 88 L15 118 L28 118 L30 68 Z" fill="#1f1f1f"/>
+            <path d="M74 60 Q78 72 81 88 L81 118 L68 118 L66 68 Z" fill="#1f1f1f"/>
             {/* Bolsillo central */}
-            <path d="M30 95 L30 115 L60 115 L60 95 Q45 90 30 95" fill="#2a2a2a" stroke="#353535" strokeWidth="0.5"/>
+            <path d="M32 95 L32 115 L64 115 L64 95 Q48 90 32 95" fill="#2a2a2a" stroke="#353535" strokeWidth="0.5"/>
             {/* Capucha */}
-            <path d="M28 62 Q32 55 45 58 Q58 55 62 62" fill="#2f2f2f"/>
-            <path d="M25 64 Q28 58 45 60 Q62 58 65 64" stroke="#3a3a3a" strokeWidth="1" fill="none"/>
+            <path d="M25 60 Q32 53 48 56 Q64 53 71 60" fill="#2f2f2f"/>
+            <path d="M22 62 Q28 56 48 58 Q68 56 74 62" stroke="#3a3a3a" strokeWidth="1" fill="none"/>
             {/* Cordones */}
-            <line x1="42" y1="62" x2="40" y2="78" stroke="#555" strokeWidth="1.5"/>
-            <line x1="48" y1="62" x2="50" y2="78" stroke="#555" strokeWidth="1.5"/>
-            <circle cx="40" cy="80" r="2" fill="#555"/>
-            <circle cx="50" cy="80" r="2" fill="#555"/>
+            <line x1="44" y1="60" x2="42" y2="76" stroke="#555" strokeWidth="1.5"/>
+            <line x1="52" y1="60" x2="54" y2="76" stroke="#555" strokeWidth="1.5"/>
+            <circle cx="42" cy="78" r="2" fill="#555"/>
+            <circle cx="54" cy="78" r="2" fill="#555"/>
           </>
         ) : (
           <>
-            {/* Chaqueta/camiseta azul o armadura */}
-            <path d="M25 62 Q18 68 16 80 L16 120 L74 120 L74 80 Q72 68 65 62 Z"
+            {/* Camiseta/armadura - torso más ancho y musculoso */}
+            <path d="M22 60 Q12 66 10 78 L10 120 L86 120 L86 78 Q84 66 74 60 Z"
                   fill={equipment?.armor?.equipped ? 'url(#armorMetal)' : 'url(#blueShirt)'}/>
-            {/* Sombras laterales */}
-            <path d="M25 62 Q22 75 20 90 L20 118 L30 118 L32 70 Z"
+            {/* Sombras laterales - definición muscular */}
+            <path d="M22 60 Q18 72 15 88 L15 118 L28 118 L30 68 Z"
                   fill={equipment?.armor?.equipped ? '#5a6a7a' : '#1f5aaa'}/>
-            <path d="M65 62 Q68 75 70 90 L70 118 L60 118 L58 70 Z"
+            <path d="M74 60 Q78 72 81 88 L81 118 L68 118 L66 68 Z"
                   fill={equipment?.armor?.equipped ? '#5a6a7a' : '#1f5aaa'}/>
+
+            {/* Definición pectoral */}
+            <path d="M30 72 Q35 78 40 75 Q48 73 48 78" stroke={equipment?.armor?.equipped ? '#6a7a8a' : '#2a5a9a'}
+                  strokeWidth="1.2" fill="none" opacity="0.3"/>
+            <path d="M66 72 Q61 78 56 75 Q48 73 48 78" stroke={equipment?.armor?.equipped ? '#6a7a8a' : '#2a5a9a'}
+                  strokeWidth="1.2" fill="none" opacity="0.3"/>
 
             {equipment?.armor?.equipped ? (
               <>
-                {/* Armadura detallada */}
-                <rect x="32" y="70" width="26" height="40" rx="2" fill="#8a9aab"/>
-                <line x1="45" y1="70" x2="45" y2="110" stroke="#a8b5c4" strokeWidth="1.5"/>
-                <line x1="32" y1="85" x2="58" y2="85" stroke="#a8b5c4" strokeWidth="1"/>
-                <line x1="32" y1="100" x2="58" y2="100" stroke="#a8b5c4" strokeWidth="1"/>
-                <ellipse cx="45" cy="78" rx="5" ry="3" fill="#b8c5d4" opacity="0.6"/>
+                {/* Armadura más grande y detallada */}
+                <rect x="32" y="68" width="32" height="45" rx="2" fill="#8a9aab"/>
+                <line x1="48" y1="68" x2="48" y2="113" stroke="#a8b5c4" strokeWidth="2"/>
+                <line x1="32" y1="82" x2="64" y2="82" stroke="#a8b5c4" strokeWidth="1.2"/>
+                <line x1="32" y1="98" x2="64" y2="98" stroke="#a8b5c4" strokeWidth="1.2"/>
+                <ellipse cx="48" cy="75" rx="6" ry="4" fill="#b8c5d4" opacity="0.6"/>
                 {/* Remaches */}
-                <circle cx="35" cy="73" r="1.5" fill="#c8d0d8"/>
-                <circle cx="55" cy="73" r="1.5" fill="#c8d0d8"/>
-                <circle cx="35" cy="107" r="1.5" fill="#c8d0d8"/>
-                <circle cx="55" cy="107" r="1.5" fill="#c8d0d8"/>
+                <circle cx="36" cy="71" r="2" fill="#c8d0d8"/>
+                <circle cx="60" cy="71" r="2" fill="#c8d0d8"/>
+                <circle cx="36" cy="110" r="2" fill="#c8d0d8"/>
+                <circle cx="60" cy="110" r="2" fill="#c8d0d8"/>
               </>
             ) : (
               <>
                 {/* Cuello de camiseta */}
-                <path d="M38 60 Q45 68 52 60" fill="#e8e8e8"/>
-                <path d="M38 60 Q45 66 52 60" stroke="#d0d0d0" strokeWidth="0.5" fill="none"/>
+                <path d="M38 58 Q48 66 58 58" fill="#e8e8e8"/>
+                <path d="M38 58 Q48 64 58 58" stroke="#d0d0d0" strokeWidth="0.5" fill="none"/>
                 {/* Pliegues de tela */}
-                <path d="M35 75 Q38 90 35 110" stroke="#2a5a90" strokeWidth="0.7" fill="none" opacity="0.4"/>
-                <path d="M55 75 Q52 90 55 110" stroke="#2a5a90" strokeWidth="0.7" fill="none" opacity="0.4"/>
-                <path d="M42 80 Q44 88 42 95" stroke="#2a5a90" strokeWidth="0.5" fill="none" opacity="0.3"/>
+                <path d="M32 75 Q35 90 32 110" stroke="#2a5a90" strokeWidth="0.8" fill="none" opacity="0.4"/>
+                <path d="M64 75 Q61 90 64 110" stroke="#2a5a90" strokeWidth="0.8" fill="none" opacity="0.4"/>
+                <path d="M44 80 Q46 88 44 95" stroke="#2a5a90" strokeWidth="0.6" fill="none" opacity="0.3"/>
               </>
             )}
           </>
         )}
 
-        {/* ========== BRAZOS ========== */}
-        {/* Brazo izquierdo */}
-        <path d="M16 68 Q10 75 8 88 L8 105 Q10 112 15 110 L18 108 Q16 95 18 82 L25 70 Z"
+        {/* ========== BRAZOS MÁS MUSCULOSOS (ADULTO) ========== */}
+        {/* Brazo izquierdo - más grueso */}
+        <path d="M10 66 Q4 73 2 86 L2 106 Q4 115 10 113 L14 110 Q12 96 14 80 L22 68 Z"
               fill={isEnemy ? 'url(#blackHoodie)' : (equipment?.armor?.equipped ? 'url(#armorMetal)' : 'url(#blueShirt)')}/>
-        {/* Brazo derecho */}
-        <path d="M74 68 Q80 75 82 88 L82 105 Q80 112 75 110 L72 108 Q74 95 72 82 L65 70 Z"
+        {/* Definición bíceps izquierdo */}
+        <path d="M12 72 Q8 78 10 88" stroke={isEnemy ? '#252525' : (equipment?.armor?.equipped ? '#6a7a8a' : '#1f4a8a')}
+              strokeWidth="1.5" fill="none" opacity="0.3"/>
+
+        {/* Brazo derecho - más grueso */}
+        <path d="M86 66 Q92 73 94 86 L94 106 Q92 115 86 113 L82 110 Q84 96 82 80 L74 68 Z"
               fill={isEnemy ? 'url(#blackHoodie)' : (equipment?.armor?.equipped ? 'url(#armorMetal)' : 'url(#blueShirt)')}/>
+        {/* Definición bíceps derecho */}
+        <path d="M84 72 Q88 78 86 88" stroke={isEnemy ? '#252525' : (equipment?.armor?.equipped ? '#6a7a8a' : '#1f4a8a')}
+              strokeWidth="1.5" fill="none" opacity="0.3"/>
 
-        {/* Manos realistas */}
-        <ellipse cx="12" cy="112" rx="5" ry="6" fill="url(#skinLight)"/>
-        <ellipse cx="78" cy="112" rx="5" ry="6" fill="url(#skinLight)"/>
-        {/* Dedos sutiles */}
-        <path d="M9 110 Q6 106 8 102" stroke="url(#skinLight)" strokeWidth="3" strokeLinecap="round"/>
-        <path d="M81 110 Q84 106 82 102" stroke="url(#skinLight)" strokeWidth="3" strokeLinecap="round"/>
+        {/* Manos más grandes y masculinas */}
+        <ellipse cx="8" cy="115" rx="6" ry="7" fill="url(#skinLight)"/>
+        <ellipse cx="88" cy="115" rx="6" ry="7" fill="url(#skinLight)"/>
+        {/* Dedos más definidos */}
+        <path d="M4 113 Q1 108 3 103" stroke="url(#skinLight)" strokeWidth="3.5" strokeLinecap="round"/>
+        <path d="M92 113 Q95 108 93 103" stroke="url(#skinLight)" strokeWidth="3.5" strokeLinecap="round"/>
+        {/* Nudillos sutiles */}
+        <ellipse cx="6" cy="114" rx="1.5" ry="1" fill="url(#skinDark)" opacity="0.2"/>
+        <ellipse cx="90" cy="114" rx="1.5" ry="1" fill="url(#skinDark)" opacity="0.2"/>
 
-        {/* Arma si está equipada */}
+        {/* Arma si está equipada - posición ajustada */}
         {!isEnemy && equipment?.weapon?.equipped && (
           <>
-            <rect x="80" y="90" width="4" height="28" fill="#8a8a8a" rx="1"/>
-            <rect x="78" y="85" width="8" height="6" fill="#c9a227" rx="1"/>
-            <rect x="79" y="82" width="6" height="4" fill="#a8850f"/>
-            <line x1="82" y1="93" x2="82" y2="115" stroke="#a5a5a5" strokeWidth="0.8" opacity="0.5"/>
+            <rect x="90" y="92" width="5" height="30" fill="#8a8a8a" rx="1"/>
+            <rect x="88" y="87" width="9" height="7" fill="#c9a227" rx="1"/>
+            <rect x="89" y="84" width="7" height="5" fill="#a8850f"/>
+            <line x1="92.5" y1="95" x2="92.5" y2="119" stroke="#a5a5a5" strokeWidth="1" opacity="0.5"/>
           </>
         )}
 
-        {/* ========== CUELLO ========== */}
-        <path d="M38 52 L38 64 L52 64 L52 52" fill="url(#skinLight)"/>
-        <path d="M40 55 Q42 58 40 62" stroke="url(#skinDark)" strokeWidth="0.8" fill="none" opacity="0.3"/>
+        {/* ========== CUELLO MÁS GRUESO (ADULTO) ========== */}
+        <path d="M38 48 L38 62 L58 62 L58 48" fill="url(#skinLight)"/>
+        {/* Nuez de Adán */}
+        <ellipse cx="48" cy="54" rx="3" ry="4" fill="url(#skinMid)" opacity="0.3"/>
+        <path d="M42 52 Q44 56 42 60" stroke="url(#skinDark)" strokeWidth="1" fill="none" opacity="0.3"/>
+        <path d="M54 52 Q52 56 54 60" stroke="url(#skinDark)" strokeWidth="1" fill="none" opacity="0.3"/>
 
-        {/* ========== CABEZA ========== */}
-        {/* Forma de la cabeza */}
-        <ellipse cx="45" cy="32" rx="22" ry="24" fill="url(#skinLight)"/>
+        {/* ========== CABEZA MÁS PEQUEÑA Y MASCULINA ========== */}
+        {/* Forma de la cabeza - proporción adulta con mandíbula definida */}
+        <ellipse cx="48" cy="30" rx="20" ry="20" fill="url(#skinLight)"/>
+        {/* Mandíbula más cuadrada y definida */}
+        <path d="M28 35 L28 42 Q30 48 35 50 Q48 52 61 50 Q66 48 68 42 L68 35"
+              fill="url(#skinLight)" stroke="url(#skinMid)" strokeWidth="0.5" opacity="0.5"/>
 
-        {/* Estructura facial - sombras */}
-        <path d="M28 35 Q30 42 33 48" stroke="url(#skinDark)" strokeWidth="1.5" fill="none" opacity="0.15"/>
-        <path d="M62 35 Q60 42 57 48" stroke="url(#skinDark)" strokeWidth="1.5" fill="none" opacity="0.15"/>
-        <ellipse cx="45" cy="45" rx="15" ry="8" fill="url(#skinMid)" opacity="0.1"/>
+        {/* Estructura facial - sombras más marcadas para hombre */}
+        <path d="M28 32 Q30 38 32 45" stroke="url(#skinDark)" strokeWidth="2" fill="none" opacity="0.2"/>
+        <path d="M68 32 Q66 38 64 45" stroke="url(#skinDark)" strokeWidth="2" fill="none" opacity="0.2"/>
+        <ellipse cx="48" cy="42" rx="16" ry="8" fill="url(#skinMid)" opacity="0.12"/>
 
-        {/* Orejas realistas */}
-        <ellipse cx="23" cy="34" rx="4" ry="8" fill="url(#skinLight)"/>
-        <ellipse cx="67" cy="34" rx="4" ry="8" fill="url(#skinLight)"/>
-        <path d="M22 30 Q24 34 22 38" stroke="url(#skinDark)" strokeWidth="1" fill="none" opacity="0.4"/>
-        <path d="M68 30 Q66 34 68 38" stroke="url(#skinDark)" strokeWidth="1" fill="none" opacity="0.4"/>
-        <ellipse cx="23" cy="34" rx="2" ry="4" fill="url(#skinMid)" opacity="0.3"/>
-        <ellipse cx="67" cy="34" rx="2" ry="4" fill="url(#skinMid)" opacity="0.3"/>
+        {/* Sombra de barba/vello facial */}
+        {!isEnemy && (
+          <>
+            <ellipse cx="48" cy="46" rx="12" ry="6" fill="#3a3a3a" opacity="0.08"/>
+            <path d="M36 44 Q42 46 48 46 Q54 46 60 44" stroke="#3a3a3a" strokeWidth="1.5" fill="none" opacity="0.1"/>
+            <path d="M32 40 Q35 45 35 48" stroke="#3a3a3a" strokeWidth="1" fill="none" opacity="0.08"/>
+            <path d="M64 40 Q61 45 61 48" stroke="#3a3a3a" strokeWidth="1" fill="none" opacity="0.08"/>
+          </>
+        )}
 
-        {/* ========== CABELLO REALISTA ========== */}
+        {/* Orejas ajustadas para adulto */}
+        <ellipse cx="25" cy="32" rx="4" ry="7" fill="url(#skinLight)"/>
+        <ellipse cx="71" cy="32" rx="4" ry="7" fill="url(#skinLight)"/>
+        <path d="M24 28 Q26 32 24 36" stroke="url(#skinDark)" strokeWidth="1" fill="none" opacity="0.4"/>
+        <path d="M72 28 Q70 32 72 36" stroke="url(#skinDark)" strokeWidth="1" fill="none" opacity="0.4"/>
+        <ellipse cx="25" cy="32" rx="2" ry="4" fill="url(#skinMid)" opacity="0.3"/>
+        <ellipse cx="71" cy="32" rx="2" ry="4" fill="url(#skinMid)" opacity="0.3"/>
+
+        {/* ========== CABELLO CORTO ESTILO ADULTO ========== */}
         {isEnemy ? (
           <>
-            {/* Base del cabello negro */}
-            <ellipse cx="45" cy="18" rx="24" ry="18" fill="url(#hairBlackBase)"/>
-            {/* Volumen superior */}
-            <path d="M21 28 Q24 15 35 12 Q45 8 55 12 Q66 15 69 28 L65 26 Q60 15 45 13 Q30 15 25 26 Z" fill="#1f1f1f"/>
-            {/* Mechones frontales desordenados */}
-            <path d="M25 30 L30 38 L28 25 L36 36 L38 20 L45 35 L52 20 L54 36 L62 25 L60 38 L65 30" fill="url(#hairBlackBase)"/>
-            {/* Mechón sobre el ojo */}
-            <path d="M36 22 Q40 32 46 42 L42 42 Q36 34 34 25 Z" fill="#151515"/>
+            {/* Cabello negro corto y desordenado */}
+            <ellipse cx="48" cy="16" rx="22" ry="14" fill="url(#hairBlackBase)"/>
+            {/* Volumen superior corto */}
+            <path d="M26 26 Q28 16 38 13 Q48 10 58 13 Q68 16 70 26 L67 24 Q62 16 48 14 Q34 16 29 24 Z" fill="#1f1f1f"/>
+            {/* Flequillo corto */}
+            <path d="M30 28 L34 32 L38 28 L42 32 L48 28 L54 32 L58 28 L62 32 L66 28" fill="url(#hairBlackBase)"/>
             {/* Reflejos muy sutiles */}
-            <ellipse cx="38" cy="16" rx="6" ry="3" fill="white" opacity="0.05"/>
-            <ellipse cx="55" cy="14" rx="5" ry="2" fill="white" opacity="0.04"/>
+            <ellipse cx="40" cy="14" rx="5" ry="2" fill="white" opacity="0.05"/>
+            <ellipse cx="56" cy="13" rx="4" ry="2" fill="white" opacity="0.04"/>
           </>
         ) : (
           <>
-            {/* Base del cabello castaño */}
-            <ellipse cx="45" cy="16" rx="24" ry="17" fill="url(#hairBrownLight)"/>
-            {/* Volumen y capas */}
-            <path d="M21 30 Q24 18 35 14 Q45 10 55 14 Q66 18 69 30 L64 28 Q58 18 45 16 Q32 18 26 28 Z" fill="url(#hairBrownDark)"/>
-            {/* Flequillo natural con ondas suaves */}
-            <path d="M26 32 Q32 24 38 30 Q42 22 48 28 Q52 22 56 30 Q62 24 66 32
-                     L63 35 Q58 28 54 33 Q50 26 46 32 Q42 26 38 33 Q32 28 28 35 Z" fill="url(#hairBrownLight)"/>
-            {/* Mechones laterales */}
-            <path d="M21 30 Q18 42 22 55 L28 52 Q24 42 26 32 Z" fill="url(#hairBrownDark)"/>
-            <path d="M69 30 Q72 42 68 55 L62 52 Q66 42 64 32 Z" fill="url(#hairBrownDark)"/>
-            {/* Reflejos naturales sutiles */}
-            <ellipse cx="36" cy="18" rx="7" ry="3" fill="white" opacity="0.1"/>
-            <ellipse cx="54" cy="16" rx="6" ry="3" fill="white" opacity="0.08"/>
+            {/* Cabello castaño corto estilo hombre */}
+            <ellipse cx="48" cy="14" rx="22" ry="13" fill="url(#hairBrownLight)"/>
+            {/* Volumen superior */}
+            <path d="M26 27 Q28 17 38 14 Q48 11 58 14 Q68 17 70 27 L66 25 Q60 17 48 15 Q36 17 30 25 Z" fill="url(#hairBrownDark)"/>
+            {/* Flequillo corto y peinado hacia un lado */}
+            <path d="M30 29 Q34 24 40 27 Q44 24 50 27 Q56 25 62 28 Q66 26 70 29
+                     L68 31 Q64 27 58 29 Q52 27 48 29 Q42 27 36 30 Q32 28 30 31 Z" fill="url(#hairBrownLight)"/>
+            {/* Patillas cortas */}
+            <path d="M26 28 Q24 32 26 38 L28 36 Q27 32 28 28 Z" fill="url(#hairBrownDark)"/>
+            <path d="M70 28 Q72 32 70 38 L68 36 Q69 32 68 28 Z" fill="url(#hairBrownDark)"/>
+            {/* Reflejos naturales */}
+            <ellipse cx="40" cy="16" rx="6" ry="2.5" fill="white" opacity="0.12"/>
+            <ellipse cx="56" cy="15" rx="5" ry="2" fill="white" opacity="0.1"/>
 
-            {/* Casco si está equipado */}
+            {/* Casco si está equipado - ajustado */}
             {equipment?.helmet?.equipped && (
               <>
-                <ellipse cx="45" cy="14" rx="22" ry="14" fill="#c9a227"/>
-                <ellipse cx="45" cy="12" rx="18" ry="11" fill="#dab32f"/>
-                <ellipse cx="45" cy="10" rx="14" ry="8" fill="#e8c547"/>
-                <ellipse cx="45" cy="6" rx="5" ry="5" fill="#b83030"/>
-                <ellipse cx="43" cy="4" rx="1.5" ry="1.5" fill="white" opacity="0.3"/>
+                <ellipse cx="48" cy="12" rx="20" ry="12" fill="#c9a227"/>
+                <ellipse cx="48" cy="10" rx="17" ry="10" fill="#dab32f"/>
+                <ellipse cx="48" cy="8" rx="13" ry="7" fill="#e8c547"/>
+                <ellipse cx="48" cy="4" rx="4" ry="4" fill="#b83030"/>
+                <ellipse cx="46" cy="3" rx="1.5" ry="1.5" fill="white" opacity="0.3"/>
               </>
             )}
           </>
         )}
 
-        {/* ========== OJOS REALISTAS ========== */}
+        {/* ========== OJOS MÁS PEQUEÑOS (ADULTO) ========== */}
         {isEnemy ? (
           <>
-            {/* Forma de ojos más afilada */}
-            <ellipse cx="36" cy="36" rx="7" ry="6" fill="url(#eyeWhiteReal)"/>
-            <ellipse cx="54" cy="36" rx="7" ry="6" fill="url(#eyeWhiteReal)"/>
+            {/* Ojos más pequeños y afilados */}
+            <ellipse cx="38" cy="32" rx="6" ry="5" fill="url(#eyeWhiteReal)"/>
+            <ellipse cx="58" cy="32" rx="6" ry="5" fill="url(#eyeWhiteReal)"/>
             {/* Iris marrón/rojizo */}
-            <ellipse cx="36" cy="37" rx="4.5" ry="5" fill="url(#irisRedReal)"/>
-            <ellipse cx="54" cy="37" rx="4.5" ry="5" fill="url(#irisRedReal)"/>
+            <ellipse cx="38" cy="33" rx="4" ry="4.5" fill="url(#irisRedReal)"/>
+            <ellipse cx="58" cy="33" rx="4" ry="4.5" fill="url(#irisRedReal)"/>
             {/* Pupila */}
-            <ellipse cx="36" cy="37.5" rx="2" ry="2.5" fill="#1a0a0a"/>
-            <ellipse cx="54" cy="37.5" rx="2" ry="2.5" fill="#1a0a0a"/>
-            {/* Reflejo de luz pequeño */}
-            <circle cx="34" cy="35" r="1.5" fill="white" opacity="0.9"/>
-            <circle cx="52" cy="35" r="1.5" fill="white" opacity="0.9"/>
-            <circle cx="37" cy="38.5" r="0.8" fill="white" opacity="0.5"/>
-            <circle cx="55" cy="38.5" r="0.8" fill="white" opacity="0.5"/>
-            {/* Párpados */}
-            <path d="M29 35 Q36 30 43 35" stroke="#1a1a1a" strokeWidth="1.8" fill="none"/>
-            <path d="M47 35 Q54 30 61 35" stroke="#1a1a1a" strokeWidth="1.8" fill="none"/>
-            {/* Línea de agua */}
-            <path d="M29 38 Q36 40 43 38" stroke="#d4a5a5" strokeWidth="0.5" fill="none" opacity="0.5"/>
-            <path d="M47 38 Q54 40 61 38" stroke="#d4a5a5" strokeWidth="0.5" fill="none" opacity="0.5"/>
-            {/* Cejas fruncidas */}
-            <path d="M28 28 L42 32" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"/>
-            <path d="M62 28 L48 32" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"/>
+            <ellipse cx="38" cy="33.5" rx="1.8" ry="2.2" fill="#1a0a0a"/>
+            <ellipse cx="58" cy="33.5" rx="1.8" ry="2.2" fill="#1a0a0a"/>
+            {/* Reflejo de luz */}
+            <circle cx="36.5" cy="31.5" r="1.2" fill="white" opacity="0.9"/>
+            <circle cx="56.5" cy="31.5" r="1.2" fill="white" opacity="0.9"/>
+            {/* Párpados más gruesos */}
+            <path d="M32 31 Q38 27 44 31" stroke="#1a1a1a" strokeWidth="2" fill="none"/>
+            <path d="M52 31 Q58 27 64 31" stroke="#1a1a1a" strokeWidth="2" fill="none"/>
+            {/* Línea inferior */}
+            <path d="M32 34 Q38 35 44 34" stroke="#d4a5a5" strokeWidth="0.5" fill="none" opacity="0.5"/>
+            <path d="M52 34 Q58 35 64 34" stroke="#d4a5a5" strokeWidth="0.5" fill="none" opacity="0.5"/>
+            {/* Cejas más gruesas y fruncidas */}
+            <path d="M30 25 L44 28" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round"/>
+            <path d="M66 25 L52 28" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round"/>
           </>
         ) : (
           <>
-            {/* Ojos expresivos pero realistas */}
-            <ellipse cx="36" cy="36" rx="7" ry="7" fill="url(#eyeWhiteReal)"/>
-            <ellipse cx="54" cy="36" rx="7" ry="7" fill="url(#eyeWhiteReal)"/>
-            {/* Párpado superior con pestañas */}
-            <path d="M29 35 Q36 29 43 35" stroke="#3a2a20" strokeWidth="2" fill="none" strokeLinecap="round"/>
-            <path d="M47 35 Q54 29 61 35" stroke="#3a2a20" strokeWidth="2" fill="none" strokeLinecap="round"/>
-            {/* Pestañas sutiles */}
-            <path d="M30 34 L28 31" stroke="#3a2a20" strokeWidth="1" strokeLinecap="round"/>
-            <path d="M60 34 L62 31" stroke="#3a2a20" strokeWidth="1" strokeLinecap="round"/>
-            {/* Iris azul realista */}
-            <ellipse cx="36" cy="37" rx="4.5" ry="5" fill="url(#irisBlueReal)"/>
-            <ellipse cx="54" cy="37" rx="4.5" ry="5" fill="url(#irisBlueReal)"/>
+            {/* Ojos más pequeños y masculinos */}
+            <ellipse cx="38" cy="32" rx="6" ry="5.5" fill="url(#eyeWhiteReal)"/>
+            <ellipse cx="58" cy="32" rx="6" ry="5.5" fill="url(#eyeWhiteReal)"/>
+            {/* Párpado superior */}
+            <path d="M32 31 Q38 27 44 31" stroke="#3a2a20" strokeWidth="2" fill="none" strokeLinecap="round"/>
+            <path d="M52 31 Q58 27 64 31" stroke="#3a2a20" strokeWidth="2" fill="none" strokeLinecap="round"/>
+            {/* Iris azul */}
+            <ellipse cx="38" cy="33" rx="4" ry="4.5" fill="url(#irisBlueReal)"/>
+            <ellipse cx="58" cy="33" rx="4" ry="4.5" fill="url(#irisBlueReal)"/>
             {/* Borde del iris */}
-            <ellipse cx="36" cy="37" rx="4.5" ry="5" fill="none" stroke="#2a4a6a" strokeWidth="0.5" opacity="0.5"/>
-            <ellipse cx="54" cy="37" rx="4.5" ry="5" fill="none" stroke="#2a4a6a" strokeWidth="0.5" opacity="0.5"/>
+            <ellipse cx="38" cy="33" rx="4" ry="4.5" fill="none" stroke="#2a4a6a" strokeWidth="0.5" opacity="0.5"/>
+            <ellipse cx="58" cy="33" rx="4" ry="4.5" fill="none" stroke="#2a4a6a" strokeWidth="0.5" opacity="0.5"/>
             {/* Pupila */}
-            <ellipse cx="36" cy="37.5" rx="2" ry="2.5" fill="#0a1520"/>
-            <ellipse cx="54" cy="37.5" rx="2" ry="2.5" fill="#0a1520"/>
-            {/* Reflejos de luz naturales */}
-            <circle cx="34.5" cy="35.5" r="1.5" fill="white" opacity="0.85"/>
-            <circle cx="52.5" cy="35.5" r="1.5" fill="white" opacity="0.85"/>
-            <circle cx="37" cy="38.5" r="0.7" fill="white" opacity="0.4"/>
-            <circle cx="55" cy="38.5" r="0.7" fill="white" opacity="0.4"/>
-            {/* Línea de agua inferior */}
-            <path d="M30 39 Q36 41 42 39" stroke="#e8c8c8" strokeWidth="0.4" fill="none" opacity="0.4"/>
-            <path d="M48 39 Q54 41 60 39" stroke="#e8c8c8" strokeWidth="0.4" fill="none" opacity="0.4"/>
-            {/* Cejas naturales */}
-            <path d="M29 29 Q36 26 42 29" stroke="#4a3525" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-            <path d="M48 29 Q54 26 61 29" stroke="#4a3525" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+            <ellipse cx="38" cy="33.5" rx="1.8" ry="2.2" fill="#0a1520"/>
+            <ellipse cx="58" cy="33.5" rx="1.8" ry="2.2" fill="#0a1520"/>
+            {/* Reflejos */}
+            <circle cx="36.5" cy="31.5" r="1.3" fill="white" opacity="0.85"/>
+            <circle cx="56.5" cy="31.5" r="1.3" fill="white" opacity="0.85"/>
+            <circle cx="39" cy="34" r="0.6" fill="white" opacity="0.4"/>
+            <circle cx="59" cy="34" r="0.6" fill="white" opacity="0.4"/>
+            {/* Línea inferior */}
+            <path d="M33 35 Q38 36 43 35" stroke="#e8c8c8" strokeWidth="0.4" fill="none" opacity="0.4"/>
+            <path d="M53 35 Q58 36 63 35" stroke="#e8c8c8" strokeWidth="0.4" fill="none" opacity="0.4"/>
+            {/* Cejas más gruesas y masculinas */}
+            <path d="M31 26 Q38 24 44 26" stroke="#4a3525" strokeWidth="2" fill="none" strokeLinecap="round"/>
+            <path d="M52 26 Q58 24 65 26" stroke="#4a3525" strokeWidth="2" fill="none" strokeLinecap="round"/>
           </>
         )}
 
-        {/* Rubor muy sutil y natural */}
-        <ellipse cx="28" cy="42" rx="4" ry="2" fill="#e8a0a0" opacity="0.15"/>
-        <ellipse cx="62" cy="42" rx="4" ry="2" fill="#e8a0a0" opacity="0.15"/>
+        {/* Rubor muy sutil (menos en hombres) */}
+        <ellipse cx="30" cy="38" rx="3" ry="1.5" fill="#e8a0a0" opacity="0.08"/>
+        <ellipse cx="66" cy="38" rx="3" ry="1.5" fill="#e8a0a0" opacity="0.08"/>
 
-        {/* Nariz realista */}
-        <path d="M45 38 L43 46 Q45 48 47 46 Z" fill="url(#skinMid)" opacity="0.4"/>
-        <path d="M43 46 Q45 47 47 46" stroke="url(#skinDark)" strokeWidth="0.8" fill="none" opacity="0.5"/>
-        {/* Fosa nasal sutil */}
-        <ellipse cx="44" cy="46" rx="1" ry="0.5" fill="url(#skinDark)" opacity="0.2"/>
-        <ellipse cx="46" cy="46" rx="1" ry="0.5" fill="url(#skinDark)" opacity="0.2"/>
+        {/* Nariz más grande y masculina */}
+        <path d="M48 36 L46 42 Q48 44 50 42 Z" fill="url(#skinMid)" opacity="0.5"/>
+        <path d="M46 42 Q48 43.5 50 42" stroke="url(#skinDark)" strokeWidth="1.2" fill="none" opacity="0.6"/>
+        {/* Puente nasal más definido */}
+        <path d="M47 36 L47 40" stroke="url(#skinDark)" strokeWidth="0.8" fill="none" opacity="0.2"/>
+        <path d="M49 36 L49 40" stroke="url(#skinDark)" strokeWidth="0.8" fill="none" opacity="0.2"/>
+        {/* Fosas nasales más grandes */}
+        <ellipse cx="45.5" cy="42" rx="1.5" ry="0.8" fill="url(#skinDark)" opacity="0.3"/>
+        <ellipse cx="50.5" cy="42" rx="1.5" ry="0.8" fill="url(#skinDark)" opacity="0.3"/>
 
-        {/* Boca realista */}
+        {/* Boca más grande y masculina */}
         {isEnemy ? (
           <>
-            <path d="M38 52 Q45 50 52 52" stroke="#8a5050" strokeWidth="1.5" fill="none"/>
-            <path d="M40 52 L40 51" stroke="#8a5050" strokeWidth="0.5" opacity="0.5"/>
-            <path d="M50 52 L50 51" stroke="#8a5050" strokeWidth="0.5" opacity="0.5"/>
+            <path d="M38 48 Q48 47 58 48" stroke="#8a5050" strokeWidth="2" fill="none"/>
+            <path d="M40 48 L40 47" stroke="#8a5050" strokeWidth="0.5" opacity="0.5"/>
+            <path d="M56 48 L56 47" stroke="#8a5050" strokeWidth="0.5" opacity="0.5"/>
           </>
         ) : (
           <>
-            {/* Labios con volumen */}
-            <path d="M38 50 Q45 54 52 50" stroke="#c47a7a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-            <path d="M40 51 Q45 53 50 51" fill="#d4a0a0" opacity="0.4"/>
+            {/* Labios más finos y masculinos */}
+            <path d="M38 46 Q48 48 58 46" stroke="#b87070" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+            <path d="M40 47 Q48 48 56 47" fill="#d4a0a0" opacity="0.2"/>
             {/* Línea del labio superior */}
-            <path d="M42 49 Q45 48 48 49" stroke="#c47a7a" strokeWidth="0.5" fill="none" opacity="0.6"/>
-            {/* Brillo sutil */}
-            <ellipse cx="45" cy="50" rx="2" ry="0.8" fill="white" opacity="0.15"/>
+            <path d="M42 45 Q48 44 54 45" stroke="#b87070" strokeWidth="0.6" fill="none" opacity="0.5"/>
+            {/* Comisuras definidas */}
+            <path d="M38 46 Q36 47 36 48" stroke="url(#skinDark)" strokeWidth="0.5" fill="none" opacity="0.3"/>
+            <path d="M58 46 Q60 47 60 48" stroke="url(#skinDark)" strokeWidth="0.5" fill="none" opacity="0.3"/>
           </>
         )}
 
-        {/* Accesorio */}
+        {/* Accesorio ajustado a nueva posición de oreja */}
         {!isEnemy && equipment?.accessory?.equipped && (
           <>
-            <circle cx="67" cy="34" r="4" fill="#7c3aed"/>
-            <circle cx="65.5" cy="32.5" r="1.2" fill="white" opacity="0.4"/>
+            <circle cx="71" cy="32" r="4" fill="#7c3aed"/>
+            <circle cx="69.5" cy="30.5" r="1.2" fill="white" opacity="0.4"/>
           </>
         )}
       </svg>
