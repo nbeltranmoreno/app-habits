@@ -14,15 +14,27 @@ export function useBattle(playerLevel, equipment, getEquipmentBonus) {
   const [showDamage, setShowDamage] = useState({ show: false, amount: 0, isEnemy: false });
   const [comboCount, setComboCount] = useState(0);
 
+  const getAttackInfo = (type) => {
+    const attacks = {
+      'básico': { baseDmg: 12, message: '👊 ¡Golpe básico!', unlockLevel: 0 },
+      'rápido': { baseDmg: 14, message: '⚡ ¡Golpe rápido!', unlockLevel: 2 },
+      'fuerte': { baseDmg: 22, message: '💥 ¡¡SUPER GOLPE!!', unlockLevel: 3 },
+      'crítico': { baseDmg: 30, message: '🔥 ¡¡GOLPE CRÍTICO!!', unlockLevel: 4 }
+    };
+    return attacks[type];
+  };
+
   const attack = (type) => {
     if (fighting || enemyHP <= 0 || playerHP <= 0) return;
+    const attackInfo = getAttackInfo(type);
+    if (!attackInfo || playerLevel < attackInfo.unlockLevel) return;
+
     setFighting(true);
-    const baseDmg = type === 'fuerte' ? 22 : 14;
     const equipBonus = getEquipmentBonus();
-    const dmg = baseDmg + playerLevel * 3 + comboCount * 2 + equipBonus;
+    const dmg = attackInfo.baseDmg + playerLevel * 3 + comboCount * 2 + equipBonus;
     setPlayerAttacking(true);
     setPlayerAnim('translate-x-10');
-    setBattleMsg(type === 'fuerte' ? '💥 ¡¡SUPER GOLPE!!' : '⚡ ¡Golpe rápido!');
+    setBattleMsg(attackInfo.message);
 
     setTimeout(() => {
       setPlayerAnim(''); setPlayerAttacking(false); setEnemyHit(true);

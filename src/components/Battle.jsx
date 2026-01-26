@@ -1,4 +1,4 @@
-import { Heart, Zap, Flame, TreePine } from 'lucide-react';
+import { Heart, Zap, Flame, TreePine, Sword, Sparkles } from 'lucide-react';
 import KidCharacter from './KidCharacter';
 
 export default function Battle({
@@ -81,16 +81,52 @@ export default function Battle({
         <p className="text-white font-black text-lg">{battleMsg}</p>
       </div>
 
-      <div className="flex gap-3 mt-3">
-        <button onClick={() => attack('rápido')} disabled={fighting || playerHP <= 0 || enemyHP <= 0}
-          className="flex-1 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-black text-lg rounded-xl disabled:opacity-50 shadow-xl flex items-center justify-center gap-2">
-          <Zap className="w-6 h-6" />
-          Rápido
+      <div className="grid grid-cols-2 gap-3 mt-3">
+        {/* Ataque Básico - Siempre disponible */}
+        <button onClick={() => attack('básico')} disabled={fighting || playerHP <= 0 || enemyHP <= 0}
+          className="py-4 bg-gradient-to-r from-gray-500 to-gray-600 text-white font-black text-lg rounded-xl disabled:opacity-50 shadow-xl flex flex-col items-center justify-center gap-1">
+          <Sword className="w-6 h-6" />
+          <span>Básico</span>
+          <span className="text-xs font-normal opacity-80">Nv.0</span>
         </button>
-        <button onClick={() => attack('fuerte')} disabled={fighting || playerHP <= 0 || enemyHP <= 0}
-          className="flex-1 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-black text-lg rounded-xl disabled:opacity-50 shadow-xl flex items-center justify-center gap-2">
+
+        {/* Ataque Rápido - Nivel 2+ */}
+        <button onClick={() => attack('rápido')} disabled={fighting || playerHP <= 0 || enemyHP <= 0 || playerLevel < 2}
+          className="py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-black text-lg rounded-xl disabled:opacity-50 shadow-xl flex flex-col items-center justify-center gap-1 relative">
+          <Zap className="w-6 h-6" />
+          <span>Rápido</span>
+          <span className="text-xs font-normal opacity-80">Nv.2</span>
+          {playerLevel < 2 && (
+            <div className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center">
+              <span className="text-sm">🔒 Nv.2</span>
+            </div>
+          )}
+        </button>
+
+        {/* Ataque Fuerte - Nivel 3+ */}
+        <button onClick={() => attack('fuerte')} disabled={fighting || playerHP <= 0 || enemyHP <= 0 || playerLevel < 3}
+          className="py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-black text-lg rounded-xl disabled:opacity-50 shadow-xl flex flex-col items-center justify-center gap-1 relative">
           <Flame className="w-6 h-6" />
-          ¡Fuerte!
+          <span>Fuerte</span>
+          <span className="text-xs font-normal opacity-80">Nv.3</span>
+          {playerLevel < 3 && (
+            <div className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center">
+              <span className="text-sm">🔒 Nv.3</span>
+            </div>
+          )}
+        </button>
+
+        {/* Ataque Crítico - Nivel 4+ */}
+        <button onClick={() => attack('crítico')} disabled={fighting || playerHP <= 0 || enemyHP <= 0 || playerLevel < 4}
+          className="py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-black text-lg rounded-xl disabled:opacity-50 shadow-xl flex flex-col items-center justify-center gap-1 relative">
+          <Sparkles className="w-6 h-6" />
+          <span>Crítico</span>
+          <span className="text-xs font-normal opacity-80">Nv.4</span>
+          {playerLevel < 4 && (
+            <div className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center">
+              <span className="text-sm">🔒 Nv.4</span>
+            </div>
+          )}
         </button>
       </div>
 
