@@ -214,45 +214,43 @@ export default function KidCharacter({ isEnemy, anim, isHit, isAttacking, equipm
         <ellipse cx="25" cy="34" rx="2" ry="4" fill="url(#skinMid)" opacity="0.3"/>
         <ellipse cx="70" cy="34" rx="2" ry="4" fill="url(#skinMid)" opacity="0.3"/>
 
-        {/* ========== CABELLO ESTILO ADOLESCENTE ========== */}
+        {/* ========== CABELLO ESTILO CHICO/NIÑO ========== */}
         {isEnemy ? (
           <>
-            {/* Cabello negro desordenado de adolescente */}
-            <ellipse cx="47.5" cy="17" rx="23" ry="15" fill="url(#hairBlackBase)"/>
-            {/* Volumen superior con más altura */}
-            <path d="M24.5 28 Q27 16 37 13 Q47.5 9 58 13 Q68 16 70.5 28 L67 26 Q61 15 47.5 13 Q34 15 28 26 Z" fill="#1f1f1f"/>
-            {/* Flequillo desordenado de adolescente */}
-            <path d="M28 30 L32 35 L36 29 L41 34 L47.5 29 L54 34 L59 29 L63 35 L67 30" fill="url(#hairBlackBase)"/>
-            {/* Mechón rebelde */}
-            <path d="M44 24 Q46 30 50 32 L48 32 Q45 28 44 24 Z" fill="#151515"/>
+            {/* Cabello negro corto de chico */}
+            <ellipse cx="47.5" cy="18" rx="22" ry="13" fill="url(#hairBlackBase)"/>
+            {/* Volumen superior simple */}
+            <path d="M25.5 30 Q28 19 37 16 Q47.5 13 58 16 Q67 19 69.5 30 L66 28 Q60 18 47.5 16 Q35 18 29 28 Z" fill="#1f1f1f"/>
+            {/* Flequillo simple y corto */}
+            <path d="M30 32 Q35 29 41 32 Q47.5 29 54 32 Q60 29 65 32 L63 34 Q57 31 47.5 31 Q38 31 32 34 Z" fill="url(#hairBlackBase)"/>
             {/* Reflejos sutiles */}
-            <ellipse cx="39" cy="15" rx="6" ry="2.5" fill="white" opacity="0.05"/>
-            <ellipse cx="56" cy="14" rx="5" ry="2" fill="white" opacity="0.04"/>
+            <ellipse cx="40" cy="16" rx="5" ry="2" fill="white" opacity="0.05"/>
+            <ellipse cx="55" cy="15" rx="4" ry="1.8" fill="white" opacity="0.04"/>
           </>
         ) : (
           <>
-            {/* Cabello castaño estilo adolescente moderno */}
-            <ellipse cx="47.5" cy="16" rx="23" ry="15" fill="url(#hairBrownLight)"/>
-            {/* Volumen superior con más altura */}
-            <path d="M24.5 29 Q27 17 37 14 Q47.5 10 58 14 Q68 17 70.5 29 L66 27 Q59 16 47.5 14 Q36 16 29 27 Z" fill="url(#hairBrownDark)"/>
-            {/* Flequillo moderno de adolescente */}
-            <path d="M28 31 Q33 25 39 29 Q43 24 49 28 Q54 24 60 29 Q65 25 70 31
-                     L68 33 Q63 28 58 31 Q52 27 47.5 30 Q43 27 37 31 Q32 29 28 33 Z" fill="url(#hairBrownLight)"/>
-            {/* Patillas de adolescente */}
-            <path d="M25 30 Q23 35 25 42 L27 40 Q26 35 27 30 Z" fill="url(#hairBrownDark)"/>
-            <path d="M70 30 Q72 35 70 42 L68 40 Q69 35 68 30 Z" fill="url(#hairBrownDark)"/>
+            {/* Cabello castaño estilo chico simple */}
+            <ellipse cx="47.5" cy="18" rx="22" ry="13" fill="url(#hairBrownLight)"/>
+            {/* Volumen superior */}
+            <path d="M25.5 30 Q28 19 37 16 Q47.5 13 58 16 Q67 19 69.5 30 L66 28 Q59 18 47.5 16 Q36 18 29 28 Z" fill="url(#hairBrownDark)"/>
+            {/* Flequillo simple de chico */}
+            <path d="M30 32 Q35 28 41 31 Q47.5 28 54 31 Q60 28 65 32
+                     L63 34 Q58 30 47.5 30 Q37 30 32 34 Z" fill="url(#hairBrownLight)"/>
+            {/* Lados cortos */}
+            <path d="M26 30 Q25 33 26 36 L27 35 Q26.5 32 27 30 Z" fill="url(#hairBrownDark)"/>
+            <path d="M69 30 Q70 33 69 36 L68 35 Q68.5 32 68 30 Z" fill="url(#hairBrownDark)"/>
             {/* Reflejos naturales */}
-            <ellipse cx="39" cy="17" rx="7" ry="3" fill="white" opacity="0.12"/>
-            <ellipse cx="56" cy="16" rx="6" ry="2.5" fill="white" opacity="0.1"/>
+            <ellipse cx="40" cy="17" rx="6" ry="2.5" fill="white" opacity="0.15"/>
+            <ellipse cx="55" cy="16" rx="5" ry="2" fill="white" opacity="0.12"/>
 
             {/* Casco si está equipado */}
             {equipment?.helmet?.equipped && (
               <>
-                <ellipse cx="47.5" cy="14" rx="21" ry="13" fill="#c9a227"/>
-                <ellipse cx="47.5" cy="12" rx="18" ry="11" fill="#dab32f"/>
-                <ellipse cx="47.5" cy="9" rx="14" ry="8" fill="#e8c547"/>
-                <ellipse cx="47.5" cy="5" rx="5" ry="5" fill="#b83030"/>
-                <ellipse cx="45.5" cy="3.5" rx="1.5" ry="1.5" fill="white" opacity="0.3"/>
+                <ellipse cx="47.5" cy="15" rx="20" ry="12" fill="#c9a227"/>
+                <ellipse cx="47.5" cy="13" rx="17" ry="10" fill="#dab32f"/>
+                <ellipse cx="47.5" cy="10" rx="13" ry="7" fill="#e8c547"/>
+                <ellipse cx="47.5" cy="6" rx="4.5" ry="4.5" fill="#b83030"/>
+                <ellipse cx="45.5" cy="4" rx="1.5" ry="1.5" fill="white" opacity="0.3"/>
               </>
             )}
           </>
