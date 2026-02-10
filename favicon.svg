@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="check" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="star" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)"/>
+  <!-- Checkmark -->
+  <path d="M36 65 L55 84 L92 44" fill="none" stroke="url(#check)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sparkle top-right -->
+  <path d="M96 20 L98 28 L106 30 L98 32 L96 40 L94 32 L86 30 L94 28 Z" fill="url(#star)"/>
+  <!-- Sparkle small -->
+  <path d="M78 16 L79 20 L83 21 L79 22 L78 26 L77 22 L73 21 L77 20 Z" fill="#FDE68A" opacity="0.8"/>
+</svg>
